@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>DQMS – Patient Portal</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- EmailJS -->
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+  <script>
+    emailjs.init("qOMJQzsK_ZCpQs22k");
+  </script>
+</head>
+
+<body>
+
+<!-- SPLASH -->
+<div id="splash">
+  <div class="logo">DQMS</div>
+  <div class="loader">
+    <div class="bar">
+      <div id="barFill">
+        <span id="barPct">0%</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MAIN APP -->
+<main id="app" class="hidden">
+
+  <h2>Hospital Digital Queue System</h2>
+
+  <!-- SERVICE SELECTION -->
+  <div class="card">
+    <h3>Select Hospital Service</h3>
+    <button id="btnED">🚑 Emergency Department</button>
+    <button id="btnOPD">🩺 Outpatient Department (OPD)</button>
+  </div>
+
+  <!-- OPD CLINICS -->
+  <div id="clinicSection" class="card hidden">
+    <h3>Select Clinic</h3>
+    <select id="clinicSelect">
+      <option value="">Select Clinic</option>
+    </select>
+  </div>
+
+  <!-- PATIENT DETAILS -->
+  <div class="card">
+    <input id="patientName" placeholder="Full Name" />
+    <input id="patientAge" type="number" placeholder="Age" />
+    <select id="patientGender">
+      <option value="">Gender</option>
+      <option>Male</option>
+      <option>Female</option>
+      <option>Other</option>
+    </select>
+    <input id="apptPhone" placeholder="Phone (10 digits)" />
+    <button id="startBtn">Verify & Continue</button>
+  </div>
+
+  <!-- OTP -->
+  <div id="otpSection" class="card hidden">
+    <input id="apptEmail" placeholder="Email address" />
+    <button id="sendOtpBtn">Send OTP</button>
+
+    <input id="otpInput" placeholder="Enter OTP" />
+    <button id="verifyOtpBtn">Verify OTP</button>
+  </div>
+
+  <!-- STATUS -->
+  <div id="success" class="card hidden">
+    <h3>✅ Appointment Confirmed</h3>
+    <div id="queueInfo"></div>
+  </div>
+
+</main>
+
+<!-- ONLY THESE TWO SCRIPTS -->
+<script type="module" src="firebase.js"></script>
+<script type="module" src="app.js"></script>
+
+</body>
+</html>

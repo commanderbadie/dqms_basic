@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>DQMS – Admin Panel</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #0f172a;
+      color: #e5e7eb;
+      padding: 20px;
+    }
+
+    h1 {
+      margin-bottom: 10px;
+    }
+
+    select, button {
+      padding: 6px;
+      margin: 4px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 15px;
+    }
+
+    th, td {
+      border: 1px solid #334155;
+      padding: 8px;
+      text-align: center;
+      font-size: 14px;
+    }
+
+    th {
+      background: #1e293b;
+    }
+
+    .Critical { color: #ef4444; font-weight: bold; }
+    .Moderate { color: #f59e0b; font-weight: bold; }
+    .Normal { color: #22c55e; font-weight: bold; }
+
+    .Waiting { color: #38bdf8; }
+    .Called { color: #a855f7; }
+    .Skipped { color: #f97316; }
+    .Completed { color: #22c55e; }
+  </style>
+</head>
+
+<body>
+
+  <h1>DQMS – Admin Control Panel</h1>
+
+  <!-- DEPARTMENT SELECT -->
+  <div>
+    <label>Department:</label>
+    <select id="deptSelect">
+      <option value="">Select</option>
+      <option value="ED">Emergency</option>
+      <option value="OPD">OPD</option>
+    </select>
+
+    <select id="clinicSelect" class="hidden">
+      <option value="">Select Clinic</option>
+      <option value="GEN">General Medicine</option>
+      <option value="CARD">Cardiology</option>
+      <option value="ORTHO">Orthopedics</option>
+      <option value="PED">Pediatrics</option>
+      <option value="GYN">Gynecology</option>
+      <option value="NEURO">Neurology</option>
+      <option value="DERM">Dermatology</option>
+    </select>
+
+    <button id="loadBtn">Load Queue</button>
+  </div>
+
+  <!-- ACTION -->
+  <div style="margin-top:10px;">
+    <button id="callNextBtn">📢 Call Next</button>
+  </div>
+
+  <!-- QUEUE TABLE -->
+  <table>
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Name</th>
+        <th>Phone</th>
+        <th>Priority</th>
+        <th>Status</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody id="queueTable"></tbody>
+  </table>
+
+  <!-- ONLY ONE SCRIPT -->
+  <script type="module" src="admin.js"></script>
+
+</body>
+</html>
